@@ -1,19 +1,19 @@
 <template>
-  <div class="ant-import-download">
-    <a :href="filepath" :underline="false" @click="handleDownload" target="_blank">
-      <a-icon type="file-excel" class="ant-icon-document" />
-    </a>
-    <div>
-      <a :href="filepath" :underline="false" @click="handleDownload" target="_blank">点击下载模板文件</a>
-    </div>
-
-    <div class="ant-import-action">
-      <a-button @click="handleDownload" type="success" style="backgroundColor: #67C23A" size="large">
-        <a :href="filepath" :underline="false" style="backgroundColor: #67C23A;color: white" target="_blank">下载模板</a>
-      </a-button>
-      <a-button @click="handleNext" type="primary" size="large">下一步</a-button>
-    </div>
+<div class="ant-import-download">
+  <a :href="filepath" :underline="false" @click="handleDownload" target="_blank">
+    <a-icon type="file-excel" class="ant-icon-document" />
+  </a>
+  <div>
+    <a :href="filepath" :underline="false" @click="handleDownload" target="_blank">点击下载模板文件</a>
   </div>
+
+  <div class="ant-import-action">
+    <a-button @click="handleDownload" type="success" style="backgroundColor: #67C23A" size="large">
+      <a :href="filepath" :underline="false" style="backgroundColor: #67C23A;color: white" target="_blank">下载模板</a>
+    </a-button>
+    <a-button @click="handleNext" type="primary" size="large">下一步</a-button>
+  </div>
+</div>
 </template>
 
 <script>
@@ -33,20 +33,20 @@ export default {
     }
   },
   inject: ['goNext'],
-  data () {
+  data() {
     return {
       hasDownload: false
     }
   },
   methods: {
     // 点击下载
-    handleDownload () {
+    handleDownload() {
       Cookie.set('ant-import-download-' + this.filepath, true)
       this.hasDownload = true
     },
 
     // 点击下一步
-    handleNext () {
+    handleNext() {
       if (this.hasDownload) {
         this.goNext()
       } else {
@@ -55,7 +55,7 @@ export default {
     },
 
     // 判断是否已经下载
-    checkHasDownload () {
+    checkHasDownload() {
       if (this.mustdownload) {
         this.hasDownload = Cookie.get('ant-import-download-' + this.filepath)
       } else {
@@ -63,7 +63,7 @@ export default {
       }
     }
   },
-  mounted () {
+  mounted() {
     // 判断是否下载过
     this.checkHasDownload()
   }
@@ -71,13 +71,13 @@ export default {
 </script>
 
 <style scoped>
-  .ant-import-download {
-    text-align: center;
-  }
+.ant-import-download {
+  text-align: center;
+}
 
-  .ant-import-download .ant-icon-document {
-    font-size: 150px;
-    line-height: 1.2;
-    color: #67c23a;
-  }
+.ant-import-download .ant-icon-document {
+  font-size: 150px;
+  line-height: 1.2;
+  color: #67c23a;
+}
 </style>

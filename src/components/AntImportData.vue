@@ -32,7 +32,7 @@
       :pagination="dataPagination"
       bordered
       style="width: 100%"
-      v-loading="isLoading"
+      :loading="isLoading"
       rowKey="key"
     >
       <a-table-column
@@ -71,10 +71,10 @@
     <div class="ant-import-action">
       <a-button @click="handlePre" size="large" type="primary">重新上传</a-button>
       <a-button
-        :loading="isLoading"
-        @click="handleRequest"
         type="primary"
         size="large"
+        :loading="isLoading"
+        @click="handleRequest"
       >下一步</a-button>
     </div>
   </div>
@@ -205,7 +205,7 @@ export default {
       if (this.isLoading) return
 
       if (this.errorTableData.length) {
-        this.$notify.error({
+        this.$notification.error({
           title: '提示',
           message: '请处理完错误后重新上传'
         })

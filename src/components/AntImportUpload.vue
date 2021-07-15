@@ -14,7 +14,7 @@
     </div>
 
     <!-- 上传组件 -->
-    <a-upload
+    <a-upload-dragger
       accept=".xls,.xlsx"
       listType="picture-card"
       :beforeUpload="beforeUpload"
@@ -23,23 +23,22 @@
       :showUploadList="false"
       action="/"
       class="ant-import-upload-uploader"
-      v-loading="isLoading"
     >
       <a-icon type="cloud-upload" class="ant-icon-upload" />
       <div class="ant-upload__text">
         将填写后的文件拖到此处，或
         <em>点击上传</em>
       </div>
-    </a-upload>
+    </a-upload-dragger>
 
     <!-- 操作 -->
     <div class="ant-import-action">
-      <a-button @click="goPre" size="large" type="primary">上一步</a-button>
+      <a-button type="primary" size="large" @click="goPre">上一步</a-button>
       <a-button
-        :loading="isLoading"
-        @click="handleGoNext"
         type="primary"
         size="large"
+        :loading="isLoading"
+        @click="handleGoNext"
       >下一步</a-button>
     </div>
   </div>
@@ -78,7 +77,7 @@ export default {
     },
     // 上传错处提示
     uploadError (message) {
-      this.$notify.error({
+      this.$notification.error({
         title: '上传出错了',
         message: message
       })
@@ -88,7 +87,7 @@ export default {
       const titles = Object.values(fields)
       titles.forEach((item) => {
         if (!columns.includes(item)) {
-          this.$notify.error({
+          this.$notification.error({
             title: '数据错处了',
             message: item + ' 列未找到'
           })
@@ -96,7 +95,7 @@ export default {
       })
     },
     handleGoNext () {
-      this.$notify.error({
+      this.$notification.error({
         title: '提示',
         message: '请先上传数据'
       })
