@@ -1,3 +1,5 @@
+有个项目用到ant-design-vue，需要excel导入功能，双不想用两套ui，
+就把[!vue-ele-import](https://github.com/dream2023/vue-ele-import)改了一下，全局替换的^V^。没用脑子。
 # vue-ant-import | 超简单、好用的 ant-design-vue Excel 导入组件
 
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg)](https://opensource.org/licenses/mit-license.php)
