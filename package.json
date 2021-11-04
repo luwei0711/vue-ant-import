@@ -1,0 +1,78 @@
+{
+  "name": "vue-ant-import",
+  "description": "超简单、好用的 ant-design-vue Excel导入组件",
+  "version": "1.1.2",
+  "private": false,
+  "scripts": {
+    "build:lib": "vue build -t lib --name vue-ant-import -d ./dist/ ./src/index.js",
+    "build": "npm run lint && npm run build:lib",
+    "serve": "vue-cli-service serve",
+    "lint": "vue-cli-service lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luwei0711/vue-ant-import.git"
+  },
+  "main": "dist/vue-ant-import.umd.min.js",
+  "keywords": [
+    "vue-ant-import",
+    "vue",
+    "ant",
+    "ant import",
+    "ant excel",
+    "vue excel",
+    "excel import"
+  ],
+  "dependencies": {
+    "all-trim": "^1.1.1",
+    "js-cookie": "^2.2.0",
+    "lodash.clonedeep": "^4.5.0",
+    "xlsx": "^0.14.3"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.7.0",
+    "@vue/cli-plugin-eslint": "^3.7.0",
+    "@vue/cli-service": "^3.7.0",
+    "@vue/eslint-config-standard": "^4.0.0",
+    "babel-eslint": "^10.0.1",
+    "core-js": "^2.6.5",
+    "ant-design-vue": "^1.7.2",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "lint-staged": "^8.1.5",
+    "vue": "^2.6.10",
+    "vue-template-compiler": "^2.5.21"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "@vue/standard"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "src/*.{js,vue}": [
+      "vue-cli-service lint",
+      "git add"
+    ]
+  }
+}
